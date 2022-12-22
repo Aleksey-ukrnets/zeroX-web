@@ -9,4 +9,13 @@
     text-align: center;
     color: #daff01;
   }
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 38px;
+    height: 1250px;
+    overflow-y: scroll;
+    scrollbar-color: #585858 rgba(88, 88, 88, 0.2);;
+    scrollbar-width: thin;
+  }
 }
