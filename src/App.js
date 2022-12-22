@@ -4,7 +4,6 @@ import Main from './pages/Main';
 import MarketInfo from './pages/MarketInfo';
 import Pro from './pages/Pro';
 import Container from '@mui/material/Container';
-import { ContainerBox } from './ui/ContainerBox/ContainerBox';
 
 function App() {
   return (
@@ -16,7 +15,6 @@ function App() {
           <Route path="/market" element={<MarketInfo />} />
           <Route path="/pro" element={<Pro />} />
         </Routes>
-        <ContainerBox>тут будет элементы </ContainerBox>
       </Container>
     </>
   );
