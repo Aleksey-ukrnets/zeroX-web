@@ -16,7 +16,7 @@ function App() {
           <Route path="/market" element={<MarketInfo />} />
           <Route path="/pro" element={<Pro />} />
         </Routes>
-        <ContainerBox>тут будет элементы </ContainerBox>
+        {/* <ContainerBox>тут будет элементы </ContainerBox> */}
       </Container>
     </>
   );
