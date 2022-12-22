@@ -1,0 +1,13 @@
+$default-background: #15171e;
+$glass-color: rgba(31, 33, 41, 0.1);
+$glass-stroke: rgba(88, 88, 88, 0.2);
+$blur-10: blur(10px);
+$border-radius-10: border-radius(10px);
+
+:export {
+  defaultBackground: $default-background;
+  glassColor: $glass-color;
+  glassStroke: $glass-stroke;
+  blur10: $blur-10;
+  borderRadius10: $border-radius-10;
+}

@@ -1,0 +1,7 @@
+@import '../variables.scss';
+
+.containerBox {
+  background: $glass-color;
+  border: 1px solid $glass-stroke;
+  backdrop-filter: $blur-10;
+}
