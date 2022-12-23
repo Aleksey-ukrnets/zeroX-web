@@ -4,10 +4,14 @@ $glass-stroke: rgba(88, 88, 88, 0.2);
 $blur-10: blur(10px);
 $border-radius-10: border-radius(10px);
 
+//colors
+$color-lime-accent: rgba(218, 255, 1, 1);
+
 :export {
   defaultBackground: $default-background;
   glassColor: $glass-color;
   glassStroke: $glass-stroke;
   blur10: $blur-10;
   borderRadius10: $border-radius-10;
+  colorLimeAccent: $color-lime-accent;
 }
