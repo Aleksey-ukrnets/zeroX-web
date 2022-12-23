@@ -17,6 +17,15 @@ const darkTheme = createTheme({
       paper: variables.glassColor,
     },
   },
+  breakpoints: {
+    values: {
+      mobile: 0,
+      tablet: 768,
+      laptop: 1024,
+      desktop: 1280,
+      desktopLarge: 1536,
+    },
+  },
 });
 
 root.render(
