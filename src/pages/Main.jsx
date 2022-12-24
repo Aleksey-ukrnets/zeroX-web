@@ -3,8 +3,8 @@ import css from '../styles/pages/main.module.scss';
 import CardToken from '../ui/CardToken/CardToken';
 // import MainLayout from '../ui/MainLayout/MainLayout';
 import Tabs from '../ui/Tabs/Tabs';
-import testLogo from '../assets/test_logo_token.svg'
-
+import testLogo from '../assets/test_logo_token.svg';
+import ProBtn from '../ui/Buttons/ProBtn';
 
 const tabs = [
   { id: 1, title: 'ANALYZED' },
@@ -26,7 +26,7 @@ export default function Main() {
       desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
       rise: '45%',
       holders: '1500',
-      age: '2d'
+      age: '2d',
     },
     {
       id: 2,
@@ -38,7 +38,7 @@ export default function Main() {
       desc: 'Founded token for new walletts and transactions. Analyzed for...',
       rise: '45%',
       holders: '1500',
-      age: '2d'
+      age: '2d',
     },
     {
       id: 3,
@@ -50,7 +50,7 @@ export default function Main() {
       desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity ',
       rise: '45%',
       holders: '1500',
-      age: '2d'
+      age: '2d',
     },
     {
       id: 4,
@@ -62,7 +62,7 @@ export default function Main() {
       desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
       rise: '45%',
       holders: '1500',
-      age: '2d'
+      age: '2d',
     },
     {
       id: 4,
@@ -74,7 +74,7 @@ export default function Main() {
       desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
       rise: '45%',
       holders: '1500',
-      age: '2d'
+      age: '2d',
     },
     {
       id: 4,
@@ -86,7 +86,7 @@ export default function Main() {
       desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
       rise: '45%',
       holders: '1500',
-      age: '2d'
+      age: '2d',
     },
     {
       id: 4,
@@ -98,7 +98,7 @@ export default function Main() {
       desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
       rise: '45%',
       holders: '1500',
-      age: '2d'
+      age: '2d',
     },
     {
       id: 4,
@@ -110,7 +110,7 @@ export default function Main() {
       desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
       rise: '45%',
       holders: '1500',
-      age: '2d'
+      age: '2d',
     },
     {
       id: 4,
@@ -122,7 +122,7 @@ export default function Main() {
       desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
       rise: '45%',
       holders: '1500',
-      age: '2d'
+      age: '2d',
     },
     {
       id: 4,
@@ -134,19 +134,25 @@ export default function Main() {
       desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
       rise: '45%',
       holders: '1500',
-      age: '2d'
+      age: '2d',
     },
-   
   ]);
   return (
     <div className={css.main}>
       <h1 className={css.title}>{tabs[tab].title}</h1>
       <Tabs tabs={tabs} initialTab={tab} onTabChange={setTab} />
-      {tab === 0 ? <div className={css.cards}>
-        {cards.map((el, index) => {
-          return <CardToken key={index} data={el} />;
-        })}
-      </div> : <></>}
+      {tab === 0 ? (
+        <>
+          <div className={css.cards}>
+            {cards.map((el, index) => {
+              return <CardToken key={index} data={el} />;
+            })}
+          </div>{' '}
+          <ProBtn />
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
