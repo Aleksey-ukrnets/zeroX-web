@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import css from './style.module.scss';
+
 export default function CardToken({ data }) {
   return (
     <div className={css.card}>
@@ -23,11 +25,13 @@ export default function CardToken({ data }) {
           <div> {data?.holders}</div>
         </div>
         <div className={css.age}>
-            <div>Age</div>
-            <div>{data.age}</div>
+          <div>Age</div>
+          <div>{data.age}</div>
         </div>
       </div>
-      <button className={css.btn}>more info</button>
+      <Link to={`/${data.id}`} className={css.btn}>
+        more info
+      </Link>
     </div>
   );
 }
