@@ -1,0 +1,80 @@
+.twitterCard {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  min-width: 425px;
+  header {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    align-items: flex-start;
+    gap: 15px;
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .nicks {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-size: 18px;
+      line-height: 21px;
+      .name {
+        font-weight: 600;
+        align-items: left;
+        color: #000000;
+      }
+      .nick {
+        font-weight: 400;
+        align-items: left;
+        color: #878787;
+      }
+    }
+    .link {
+        display: flex;
+        justify-content: right;
+    }
+  }
+  .content {
+    margin-top: 16px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    color: #353535;
+  }
+  .date {
+    margin-top: 20px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #878787;
+  }
+  footer {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    align-items: center;
+    .text {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      align-items: left;
+      color: #878787;
+    }
+    .infoIcon {
+        display: flex;
+        justify-content: right;
+    }
+  }
+}

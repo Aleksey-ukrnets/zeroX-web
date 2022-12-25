@@ -4,8 +4,19 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { styled } from '@mui/material/styles';
 import { Title } from '../../components/Title/Title';
 import css from './token.module.scss';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import TwitterCard from '../TwitterCard/TwitterCard';
+
+// avatar: 'https://pbs.twimg.com/profile_images/1542883661288194048/dx37WyUa_400x400.jpg';
+// name: 'Directoapp';
+// nick: 'directoapp';
+// publish_timestamp: 1671813316;
+// twit: 'To be part of our @directoapp_token proposition event you must be Whitelisted to participate. Whitelist today: http://shorturl.at/adJM7 $DRTP #Airdrops #IDO #CryptoNews #Token';
+// twitter_link: 'https://twitter.com/';
 
 export const TokenInfo = () => {
+  let [twits, setTwits] = useState([]);
   //   const matches = useMediaQuery((theme) => {
   //     console.log(theme);
   //     if (theme) return theme.breakpoints.up('desktopLarge');
@@ -16,7 +27,12 @@ export const TokenInfo = () => {
   //       marginTop: '120px',
   //     },
   //   }));
-
+  useEffect(() => {
+    axios.get('https://zerox.pro/api/twitter').then((resp) => {
+      console.log(resp, 'twitter');
+      setTwits(resp.data.data);
+    });
+  }, []);
   return (
     <ContainerBox mt={17}>
       <Title>Token Info</Title>
@@ -81,6 +97,11 @@ export const TokenInfo = () => {
           </div>
         </Grid>
       </Grid>
+      <div className={css.twitterPosts}>
+        {twits.map((el, index) => {
+          return <TwitterCard key={index} data={el} />;
+        })}
+      </div>
     </ContainerBox>
   );
 };
