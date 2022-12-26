@@ -5,13 +5,8 @@ import css from './token.module.scss';
 import { CommonAvatar } from '../../components/CommonAvatar/CommonAvatar';
 import { Box, Typography, Button } from '@mui/material';
 import { IconsContainer } from '../../components/IconsContainer/IconsContainer';
-import TwitterCard from '../TwitterCard/TwitterCard';
-import { useSelector } from 'react-redux';
-import { twitterCardsSelector } from '../../store/slices/twitterCards';
 
 export const TokenInfo = () => {
-  const { twitterCards } = useSelector(twitterCardsSelector.getTwitterCards);
-  console.log(twitterCards, 'twitterCards');
   return (
     <>
       <ContainerBox mt={{ desktopLarge: 20 }}>
@@ -61,7 +56,7 @@ export const TokenInfo = () => {
             */}
           </Grid>
         </Grid>
-        <Box sx={{ display: 'inline-flex' }}>
+        <Box sx={{ display: 'inline-flex' }} mt={1}>
           <Box fontSize={{ mobile: 16, tablet: 20 }} mr={4}>
             <Typography variant="subtitle1" fontSize="inherit">
               Audit
@@ -112,13 +107,6 @@ export const TokenInfo = () => {
           </Button>
         </Box>
       </ContainerBox>
-      {/* -------------- Twitter -------------- */}
-      <Box className={css.twitterPosts}>
-        {twitterCards.map((el, index) => {
-          return <TwitterCard key={index} data={el} />;
-        })}
-      </Box>
-      {/* -------------- /Twitter -------------- */}
     </>
   );
 };
