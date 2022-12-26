@@ -1,2 +1,10 @@
-.TokenInfo {
+@import '../../styles/variables.scss';
+
+.BorderBottom {
+  border-bottom: 1px solid $color-gray-dark;
+}
+.BaseInfo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
