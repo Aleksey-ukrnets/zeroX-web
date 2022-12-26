@@ -5,18 +5,13 @@ import css from './token.module.scss';
 import { CommonAvatar } from '../../components/CommonAvatar/CommonAvatar';
 import { Box, Typography, Button } from '@mui/material';
 import { IconsContainer } from '../../components/IconsContainer/IconsContainer';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import TwitterCard from '../TwitterCard/TwitterCard';
+import { useSelector } from 'react-redux';
+import { twitterCardsSelector } from '../../store/slices/twitterCards';
 
 export const TokenInfo = () => {
-  let [twits, setTwits] = useState([]);
-  useEffect(() => {
-    axios.get('https://zerox.pro/api/twitter').then((resp) => {
-      console.log(resp, 'twitter');
-      setTwits(resp.data.data);
-    });
-  }, []);
+  const { twitterCards } = useSelector(twitterCardsSelector.getTwitterCards);
+  console.log(twitterCards, 'twitterCards');
   return (
     <>
       <ContainerBox mt={{ desktopLarge: 20 }}>
@@ -63,28 +58,7 @@ export const TokenInfo = () => {
           <Grid item tablet={6} sx={{ width: '100%', height: '100%' }}>
             {/*
            ---------- тут подумать - сделать обычными div'ми или графиками? --------- 
-          <Grid 
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="flex-end"
-            spacing={1}
-            columns={12}
-            sx={{ height: '100%' }}
-          >
-            <Grid item mobile={3} sx={{ height: '100%' }}>
-              <Box sx={{ backgroundColor: '#434652', height: '25%' }}>asd</Box>
-            </Grid>
-            <Grid item mobile={3}>
-              <Box sx={{ backgroundColor: '#434652', height: '50%' }}>asd</Box>
-            </Grid>
-            <Grid item mobile={3}>
-              <Box sx={{ backgroundColor: '#434652', height: '10%' }}>asd</Box>
-            </Grid>
-            <Grid item mobile={3}>
-              <Box sx={{ backgroundColor: '#434652', height: '50%' }}>asd</Box>
-            </Grid>
-          </Grid> */}
+            */}
           </Grid>
         </Grid>
         <Box sx={{ display: 'inline-flex' }}>
@@ -140,7 +114,7 @@ export const TokenInfo = () => {
       </ContainerBox>
       {/* -------------- Twitter -------------- */}
       <Box className={css.twitterPosts}>
-        {twits.map((el, index) => {
+        {twitterCards.map((el, index) => {
           return <TwitterCard key={index} data={el} />;
         })}
       </Box>
