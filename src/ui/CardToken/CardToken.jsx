@@ -21,7 +21,7 @@ export default function CardToken({ data }) {
 
   const { img } = cardsConfig[data?.status];
   // const age = new Date(1671805676).getFullYear()
- 
+
   return (
     <div className={css.card}>
       <div className={css.header}>
@@ -38,7 +38,13 @@ export default function CardToken({ data }) {
           <div className={colors[data?.status].color}></div>
         </div>
       </div>
-      <div className={cn(css.logo, !data.token_logo && css.noLogo,colors[data?.status].color )}>
+      <div
+        className={cn(
+          css.logo,
+          !data.token_logo && css.noLogo,
+          colors[data?.status].color
+        )}
+      >
         {data.token_logo ? (
           <img src={data?.token_logo} alt="logo" />
         ) : (

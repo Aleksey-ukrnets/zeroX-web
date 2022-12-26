@@ -3,7 +3,6 @@
   background: rgba(31, 33, 41, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 10px;
-  max-width: 402px;
   border: 2px solid rgba(88, 88, 88, 0.2);
   box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
   .header {
@@ -66,15 +65,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   
+
     &.analyzed {
       background: #ffffff;
     }
     &.algo {
-      background: #1F2129;
+      background: #1f2129;
     }
     &.launchpad {
-      background: #3B52FF;
+      background: #3b52ff;
     }
     &.noLogo {
       font-family: 'Roboto';
@@ -83,7 +82,7 @@
       font-size: 44px;
       line-height: 55px;
       border: 6px solid orange;
-      background: #1F2129;
+      background: #1f2129;
     }
     // & img {
     //   width: 100%;
