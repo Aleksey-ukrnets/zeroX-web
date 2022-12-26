@@ -16,6 +16,12 @@ const darkTheme = createTheme({
       default: variables.defaultBackground,
       paper: variables.glassColor,
     },
+    primary: {
+      main: variables.colorLimeAccent,
+    },
+    secondary: {
+      main: variables.colorGrayDark,
+    },
   },
   breakpoints: {
     values: {
