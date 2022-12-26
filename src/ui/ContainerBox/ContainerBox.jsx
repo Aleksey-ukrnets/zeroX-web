@@ -5,7 +5,10 @@ export const ContainerBox = ({ children, mt, mb }) => {
   return (
     <Paper
       sx={{
-        p: 2,
+        p: {
+          tablet: '30px',
+          mobile: '21px',
+        },
         borderRadius: 2.5,
         mt: mt,
         mb: mb,
