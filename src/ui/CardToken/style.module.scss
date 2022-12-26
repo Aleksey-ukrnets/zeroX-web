@@ -1,16 +1,21 @@
 .card {
   padding: 21px 15px 27px;
   background: rgba(31, 33, 41, 0.1);
-  border: 2px solid rgba(88, 88, 88, 0.2);
-  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
   border-radius: 10px;
   max-width: 402px;
+  border: 2px solid rgba(88, 88, 88, 0.2);
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
   .header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    // justify-content: space-between;
     align-items: center;
+    grid-template-columns: 1fr 3fr 1fr;
     .type {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      gap: 2px;
     }
     .text {
       font-family: 'Roboto';
@@ -18,15 +23,39 @@
       font-weight: 400;
       font-size: 20px;
       line-height: 23px;
+      text-transform: uppercase;
       text-align: center;
-      color: #3ae84b;
+      &.analyzed {
+        color: #3ae84b;
+      }
+      &.algo {
+        color: #daff01;
+      }
+      &.launchpad {
+        color: #9353ff;
+      }
+      & img {
+        margin-left: 6px;
+      }
     }
     .rarity {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #3ae84b;
-      filter: blur(1px);
+      display: flex;
+      justify-content: right;
+      div {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        filter: blur(1px);
+        &.analyzed {
+          background: #3ae84b;
+        }
+        &.algo {
+          background: #daff01;
+        }
+        &.launchpad {
+          background: #9353ff;
+        }
+      }
     }
   }
   .logo {
@@ -37,6 +66,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+   
+    &.analyzed {
+      background: #ffffff;
+    }
+    &.algo {
+      background: #1F2129;
+    }
+    &.launchpad {
+      background: #3B52FF;
+    }
+    &.noLogo {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 44px;
+      line-height: 55px;
+      border: 6px solid orange;
+      background: #1F2129;
+    }
+    // & img {
+    //   width: 100%;
+    //   height: 100%;
+    // }
   }
   .title {
     margin-top: 42px;

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import css from '../styles/pages/main.module.scss';
 import CardToken from '../ui/CardToken/CardToken';
 // import MainLayout from '../ui/MainLayout/MainLayout';
 import Tabs from '../ui/Tabs/Tabs';
-import testLogo from '../assets/test_logo_token.svg';
+
 import ProBtn from '../ui/Buttons/ProBtn';
+import axios from 'axios';
 
 const tabs = [
   { id: 1, title: 'ANALYZED' },
@@ -14,129 +15,16 @@ const tabs = [
 ];
 
 export default function Main() {
+  
   const [tab, setTab] = useState(0);
-  const [cards, setCards] = useState([
-    {
-      id: 1,
-      type: 'pro',
-      text: 'analyzed',
-      rarity: 1,
-      logo: testLogo,
-      title: 'Trust Wallet',
-      desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
-      rise: '45%',
-      holders: '1500',
-      age: '2d',
-    },
-    {
-      id: 2,
-      type: 'pro',
-      text: 'analyzed',
-      rarity: 1,
-      logo: testLogo,
-      title: 'Xavier token',
-      desc: 'Founded token for new walletts and transactions. Analyzed for...',
-      rise: '45%',
-      holders: '1500',
-      age: '2d',
-    },
-    {
-      id: 3,
-      type: 'pro',
-      text: 'analyzed',
-      rarity: 1,
-      logo: testLogo,
-      title: 'Car rent token',
-      desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity ',
-      rise: '45%',
-      holders: '1500',
-      age: '2d',
-    },
-    {
-      id: 4,
-      type: 'pro',
-      text: 'analyzed',
-      rarity: 1,
-      logo: testLogo,
-      title: 'Omona coin',
-      desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
-      rise: '45%',
-      holders: '1500',
-      age: '2d',
-    },
-    {
-      id: 4,
-      type: 'pro',
-      text: 'analyzed',
-      rarity: 1,
-      logo: testLogo,
-      title: 'Omona coin',
-      desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
-      rise: '45%',
-      holders: '1500',
-      age: '2d',
-    },
-    {
-      id: 4,
-      type: 'pro',
-      text: 'analyzed',
-      rarity: 1,
-      logo: testLogo,
-      title: 'Omona coin',
-      desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
-      rise: '45%',
-      holders: '1500',
-      age: '2d',
-    },
-    {
-      id: 4,
-      type: 'pro',
-      text: 'analyzed',
-      rarity: 1,
-      logo: testLogo,
-      title: 'Omona coin',
-      desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
-      rise: '45%',
-      holders: '1500',
-      age: '2d',
-    },
-    {
-      id: 4,
-      type: 'pro',
-      text: 'analyzed',
-      rarity: 1,
-      logo: testLogo,
-      title: 'Omona coin',
-      desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
-      rise: '45%',
-      holders: '1500',
-      age: '2d',
-    },
-    {
-      id: 4,
-      type: 'pro',
-      text: 'analyzed',
-      rarity: 1,
-      logo: testLogo,
-      title: 'Omona coin',
-      desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
-      rise: '45%',
-      holders: '1500',
-      age: '2d',
-    },
-    {
-      id: 4,
-      type: 'pro',
-      text: 'analyzed',
-      rarity: 1,
-      logo: testLogo,
-      title: 'Omona coin',
-      desc: 'Token with 500.000$ marketcap. and 200.000$ liquidity',
-      rise: '45%',
-      holders: '1500',
-      age: '2d',
-    },
-  ]);
+  const [cards, setCards] = useState([]);
+  useEffect(() => {
+    axios.get('https://zerox.pro/api/token_list?limit=6')
+    .then((resp) => {
+       console.log(resp,'resp')
+       setCards(resp.data.data)
+    })
+   }, [])
   return (
     <div className={css.main}>
       <h1 className={css.title}>{tabs[tab].title}</h1>

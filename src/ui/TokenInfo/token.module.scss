@@ -8,3 +8,10 @@
   align-items: center;
   flex-shrink: 0;
 }
+
+.twitterPosts {
+  display: flex;
+  overflow-x: scroll;
+  gap: 20px;
+  padding: 20px 0;
+}

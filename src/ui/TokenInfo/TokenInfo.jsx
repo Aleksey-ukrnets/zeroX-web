@@ -5,8 +5,18 @@ import css from './token.module.scss';
 import { CommonAvatar } from '../../components/CommonAvatar/CommonAvatar';
 import { Box, Typography, Button } from '@mui/material';
 import { IconsContainer } from '../../components/IconsContainer/IconsContainer';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import TwitterCard from '../TwitterCard/TwitterCard';
 
 export const TokenInfo = () => {
+  let [twits, setTwits] = useState([]);
+  useEffect(() => {
+    axios.get('https://zerox.pro/api/twitter').then((resp) => {
+      console.log(resp, 'twitter');
+      setTwits(resp.data.data);
+    });
+  }, []);
   return (
     <ContainerBox mt={{ desktopLarge: 20 }}>
       <Title>Token Info</Title>
@@ -105,6 +115,11 @@ export const TokenInfo = () => {
           </Button>
         </Grid>
       </Grid>
+      <div className={css.twitterPosts}>
+        {twits.map((el, index) => {
+          return <TwitterCard key={index} data={el} />;
+        })}
+      </div>
     </ContainerBox>
   );
 };
