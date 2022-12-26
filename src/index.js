@@ -6,7 +6,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import variables from './styles/variables.scss';
-
+import { Provider } from 'react-redux';
+import store from './store/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const darkTheme = createTheme({
@@ -31,10 +32,12 @@ const darkTheme = createTheme({
 root.render(
   <React.StrictMode>
     <Router>
-      <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={darkTheme}>
+          <CssBaseline />
+          <App />
+        </ThemeProvider>
+      </Provider>
     </Router>
   </React.StrictMode>
 );
