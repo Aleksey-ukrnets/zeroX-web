@@ -7,12 +7,10 @@ import metamaskIcon from '../../assets/metamask.svg';
 import appStoreIcon from '../../assets/appstore.svg';
 import googleStoreIcon from '../../assets/googleStore.svg';
 
-export default function Registration({ props }) {
-  useEffect(()=> {
-
-  }, [])
+export default function Registration({ props, handleClose }) {
+  useEffect(() => {}, []);
   return (
-    <div className={css.reg}>
+    <div className={css.reg} onClick={handleClose}>
       <div className={css.content}>
         <div className={css.colLeft}>
           <h1 className={cn(css.text, css.big)}>Connect Wallet</h1>
