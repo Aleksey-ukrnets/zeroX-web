@@ -1,7 +1,6 @@
 import {
   Box,
   Grid,
-  Paper,
   Table,
   TableBody,
   TableCell,
