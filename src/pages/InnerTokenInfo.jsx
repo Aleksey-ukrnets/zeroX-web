@@ -4,6 +4,7 @@ import TwitterCard from '../ui/TwitterCard/TwitterCard';
 
 import { useSelector } from 'react-redux';
 import { twitterCardsSelector } from '../store/slices/twitterCards';
+import { ChartTopHolders } from '../ui/ChartTopHolders/ChartTopHolders';
 
 export const InnerTokenInfo = () => {
   const { twitterCards } = useSelector(twitterCardsSelector.getTwitterCards);
@@ -24,6 +25,7 @@ export const InnerTokenInfo = () => {
         })}
       </Box>
       {/* -------------- /Twitter -------------- */}
+      <ChartTopHolders />
     </main>
   );
 };
