@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { statuses } from '../utils/accountStatuses';
 
@@ -7,8 +7,6 @@ import css from '../styles/pages/pro.module.scss';
 import graphIcon from '../assets/graphik.png';
 import balanceTokensIcon from '../assets/balanceTokens.png';
 import tokensIcon from '../assets/tokens.png';
-
-
 
 export default function Pro() {
   let blocks = [
@@ -28,8 +26,6 @@ export default function Pro() {
       img: balanceTokensIcon,
     },
   ];
-  
- 
 
   return (
     <div className={css.pro}>
