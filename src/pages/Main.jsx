@@ -34,12 +34,20 @@ export default function Main() {
       <Tabs tabs={tabs} initialTab={tab} onTabChange={setTab} />
       {tab === 0 ? (
         <>
-          <Box mx={15} px={2} className={css.cards}>
-            <Grid container spacing={4.75}>
+          <Box
+            mx={{ mobile: 0, tablet: 15 }}
+            px={{ mobile: 0, tablet: 2 }}
+            className={css.cards}
+          >
+            <Grid
+              container
+              spacing={4.75}
+              columns={{ mobile: 6, tablet: 6, desktop: 12 }}
+            >
               {tokenCards.map((el, index) => {
                 return (
-                  <Grid item desktop={4}>
-                    <CardToken key={index} data={el} />
+                  <Grid item mobile={6} tablet={3} desktop={4} key={index}>
+                    <CardToken data={el} />
                   </Grid>
                 );
               })}
