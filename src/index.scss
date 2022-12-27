@@ -1,0 +1,40 @@
+@import './styles/variables.scss';
+
+body {
+  font-family: '-apple-system', 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue',
+    Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url('./assets/bgBlur.jpg');
+  scrollbar-width: auto;
+  scrollbar-color: #585858 $glass-stroke;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+*::-webkit-scrollbar-track {
+  background: $glass-stroke;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #585858;
+  border-radius: 10px;
+}
