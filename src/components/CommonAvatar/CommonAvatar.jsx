@@ -2,14 +2,20 @@ import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import css from './commonAvatar.module.scss';
 
-export const CommonAvatar = ({ src }) => {
+export const CommonAvatar = ({ src, widthProps, heightProps }) => {
   const DefaultAvatar = () => {
     return (
       <Box
         className={css.DefaultAvatar}
         sx={{
-          width: { mobile: '109px', tablet: '129px' },
-          height: { mobile: '109px', tablet: '129px' },
+          width: {
+            mobile: widthProps?.mobile || '109px',
+            tablet: widthProps?.tablet || '129px',
+          },
+          height: {
+            mobile: heightProps?.mobile || '109px',
+            tablet: heightProps?.tablet || '129px',
+          },
         }}
       >
         <svg
@@ -30,8 +36,14 @@ export const CommonAvatar = ({ src }) => {
       <Avatar
         src={src}
         sx={{
-          width: { mobile: '109px', tablet: '129px' },
-          height: { mobile: '109px', tablet: '129px' },
+          width: {
+            mobile: widthProps?.mobile || '109px',
+            tablet: widthProps?.tablet || '129px',
+          },
+          height: {
+            mobile: heightProps?.mobile || '109px',
+            tablet: heightProps?.tablet || '129px',
+          },
         }}
       />
     );
