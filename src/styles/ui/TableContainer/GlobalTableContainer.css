@@ -1,15 +1,12 @@
-.tableRowCustom .MuiTableCell-root,
-.tableRowCustom .MuiTableCell-root td {
-  padding: 5px 0;
-  border-bottom-color: rgba(67, 70, 82, 1);
+.MuiTableHead-root {
+  border-bottom: 1px solid rgba(67, 70, 82, 1) !important;
 }
 
-.tableRowCustom.MuiTableRow-root td,
-.MuiTableRow-root th {
-  padding: 5px 0;
-  border: 0;
+.MuiTableRow-root > .MuiTableCell-root:not(:first-child) {
+  padding: 12px 5px 12px 12px;
 }
-.MuiTableRow-root td {
-  padding: 12.5px 0;
+
+.MuiTableRow-root > .MuiTableCell-root {
   border: 0;
+  padding: 12px 5px 12px 0px;
 }
