@@ -10,6 +10,8 @@ import { useDispatch } from 'react-redux';
 import { actions as twitterActions } from './store/slices/twitterCards';
 import { actions as tokenActions } from './store/slices/tokenCards';
 import axios from 'axios';
+import { Toaster } from 'react-hot-toast';
+
 function App() {
   const dispatch = useDispatch();
 
@@ -31,6 +33,7 @@ function App() {
     <>
       <Container maxWidth="desktopLarge">
         <Header />
+        <Toaster containerStyle={{ top: '70px' }} />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/:id" element={<InnerTokenInfo />} />
