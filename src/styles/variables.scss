@@ -8,6 +8,8 @@ $border-radius-10: border-radius(10px);
 $color-lime-accent: rgba(218, 255, 1, 1);
 $color-gray-neutral: rgba(174, 174, 174, 1);
 $color-gray-dark: rgba(67, 70, 82, 1);
+$color-green: rgba(117, 253, 83, 1);
+$color-orange: rgba(255, 86, 49, 1);
 
 :export {
   defaultBackground: $default-background;
@@ -18,4 +20,6 @@ $color-gray-dark: rgba(67, 70, 82, 1);
   colorLimeAccent: $color-lime-accent;
   colorGrayNeutral: $color-gray-neutral;
   colorGrayDark: $color-gray-dark;
+  colorGreen: $color-green;
+  colorOrange: $color-orange;
 }
