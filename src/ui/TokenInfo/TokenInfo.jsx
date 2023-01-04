@@ -1,12 +1,18 @@
-import Grid from '@mui/material/Grid';
+import { useSelector } from 'react-redux';
+import { Box, Typography, Button, Grid } from '@mui/material';
+import { DateTime } from 'luxon';
+import { IconsContainer } from '../../components/IconsContainer/IconsContainer';
 import { ContainerBox } from '../ContainerBox/ContainerBox';
 import { Title } from '../../components/Title/Title';
-import css from './token.module.scss';
 import { CommonAvatar } from '../../components/CommonAvatar/CommonAvatar';
-import { Box, Typography, Button } from '@mui/material';
-import { IconsContainer } from '../../components/IconsContainer/IconsContainer';
+import { tokenDetailedInfoSelector } from '../../store/slices/tokenDetailedInfo';
+import css from './token.module.scss';
 
 export const TokenInfo = () => {
+  const { tokenDetailedInfo } = useSelector(
+    tokenDetailedInfoSelector.getTokenDetailedInfo
+  );
+
   return (
     <>
       <ContainerBox mt={{ desktopLarge: 20 }}>
@@ -20,7 +26,7 @@ export const TokenInfo = () => {
                 display: { tablet: 'flex' },
               }}
             >
-              <CommonAvatar />
+              <CommonAvatar src={tokenDetailedInfo?.token_logo} />
               <Box sx={{ ml: { tablet: 4 } }}>
                 <Typography
                   variant="h4"
@@ -30,9 +36,9 @@ export const TokenInfo = () => {
                     my: { mobile: 2 },
                   }}
                 >
-                  Expo token
+                  {tokenDetailedInfo?.token_name || 'Unknown'}
                 </Typography>
-                <IconsContainer />
+                <IconsContainer icons={tokenDetailedInfo?.social} />
               </Box>
             </Box>
 
@@ -41,13 +47,7 @@ export const TokenInfo = () => {
               component="p"
               my={{ mobile: 6.5, tablet: 3.75 }}
             >
-              In pursuit of more income, most of the users are trying to find
-              tokens in the initial phase. Scammers, knowing this, mask their
-              projects with vulnerabilities. <br />
-              <br />
-              Our goal is to provide you with a simple tool with information
-              about tokens that have passed a full audit and minimize your
-              risks.
+              {tokenDetailedInfo?.bio}
             </Typography>
           </Grid>
           <Grid item tablet={6} sx={{ width: '100%', height: '100%' }}>
@@ -57,22 +57,29 @@ export const TokenInfo = () => {
           </Grid>
         </Grid>
         <Box sx={{ display: 'inline-flex' }} mt={1}>
-          <Box fontSize={{ mobile: 16, tablet: 20 }} mr={4}>
-            <Typography variant="subtitle1" fontSize="inherit">
-              Audit
-            </Typography>
-            <Typography variant="caption" fontWeight="600" fontSize="inherit">
-              ZeroX
-            </Typography>
-          </Box>
-          <Box fontSize={{ mobile: 16, tablet: 20 }}>
-            <Typography variant="subtitle1" fontSize="inherit">
-              Age
-            </Typography>
-            <Typography variant="caption" fontWeight="600" fontSize="inherit">
-              2d
-            </Typography>
-          </Box>
+          {tokenDetailedInfo?.audit && (
+            <Box fontSize={{ mobile: 16, tablet: 20 }} mr={4}>
+              <Typography variant="subtitle1" fontSize="inherit">
+                Audit
+              </Typography>
+              <Typography variant="caption" fontWeight="600" fontSize="inherit">
+                {tokenDetailedInfo.audit}
+              </Typography>
+            </Box>
+          )}
+
+          {tokenDetailedInfo?.project_age && (
+            <Box fontSize={{ mobile: 16, tablet: 20 }}>
+              <Typography variant="subtitle1" fontSize="inherit">
+                Age
+              </Typography>
+              <Typography variant="caption" fontWeight="600" fontSize="inherit">
+                {DateTime.fromSeconds(
+                  tokenDetailedInfo.project_age
+                ).toRelative()}
+              </Typography>
+            </Box>
+          )}
         </Box>
         <Box
           sx={{

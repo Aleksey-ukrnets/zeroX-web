@@ -5,6 +5,7 @@ export const ContainerBox = ({ children, mt, mb }) => {
   return (
     <Paper
       sx={{
+        boxShadow: 8,
         p: {
           tablet: '30px',
           mobile: '21px',
