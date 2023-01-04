@@ -19,14 +19,7 @@ const tabs = [
 export default function Main() {
   const [tab, setTab] = useState(0);
   const { tokenCards } = useSelector(tokenCardsSelector.getTokenCards);
-  // const [cards, setCards] = useState([]);
-  // useEffect(() => {
-  //   axios.get('https://zerox.pro/api/token_list?limit=6')
-  //   .then((resp) => {
-  //      console.log(resp,'resp')
-  //      setCards(resp.data.data)
-  //   })
-  //  }, [])
+  
   return (
     <div className={css.main}>
       <h1 className={css.title}>{tabs[tab].title}</h1>

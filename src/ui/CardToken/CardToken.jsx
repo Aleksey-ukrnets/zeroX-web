@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import css from './style.module.scss';
 import cn from 'classnames';
 import { cardsConfig } from '../../config/cards';
-
+import { scores } from '../../tools/get-score';
 const colors = {
   analyzed: { color: css.analyzed },
   algo: { color: css.algo },
@@ -11,24 +11,15 @@ const colors = {
 };
 
 export default function CardToken({ data }) {
-  function fires() {
-    let finish = [];
-    for (let i = 0; i < data.trend_score; i++) {
-      finish.push('🔥');
-    }
-    return finish;
-  }
-
+  
   const { img } = cardsConfig[data?.status];
-  // const age = new Date(1671805676).getFullYear()
-
+  const arr = ['🔥','🔥'].join('')
+  console.log(arr)
   return (
     <div className={css.card}>
       <div className={css.header}>
         <div className={css.type}>
-          {fires()?.map((el, index) => (
-            <div key={index}>{el}</div>
-          ))}
+          {scores(data?.trend_score, '🔥')}
         </div>
         <div className={cn(css.text, colors[data?.status].color)}>
           {data?.status}

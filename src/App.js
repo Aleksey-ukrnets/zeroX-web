@@ -18,12 +18,10 @@ function App() {
   useEffect(() => {
     //twitterCards
     axios.get('https://zerox.pro/api/twitter').then((resp) => {
-      console.log(resp, 'twitter');
       dispatch(twitterActions.setTwitterCards([...resp?.data?.data]));
     });
     //tokenCards
     axios.get('https://zerox.pro/api/token_list?limit=6').then((resp) => {
-      console.log(resp, 'response');
       dispatch(tokenActions.setTokenCards([...resp?.data?.data]));
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
