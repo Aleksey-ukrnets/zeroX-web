@@ -25,10 +25,10 @@ export default function MarketInfo() {
   return (
     <div className={css.market}>
       <div className={css.tradingBlock}>
-        {topInfoTrades.map((el) => {
+        {topInfoTrades.map((el, index) => {
           let {change_type} = el
           return (
-            <div className={css.tradeInfo}>
+            <div className={css.tradeInfo} key={index}>
               <div className={css.title}>{el.title}</div>
               <div className={css.cost}>${el.volume}</div>
               <div style={{color: change_type === 'down' ? '#FF0000' : '#75FD53'}}  className={cn(css.persent, css.color)}>{el.change_percent}%</div>

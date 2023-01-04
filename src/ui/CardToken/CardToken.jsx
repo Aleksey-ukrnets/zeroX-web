@@ -13,8 +13,7 @@ const colors = {
 export default function CardToken({ data }) {
   
   const { img } = cardsConfig[data?.status];
-  const arr = ['🔥','🔥'].join('')
-  console.log(arr)
+  
   return (
     <div className={css.card}>
       <div className={css.header}>
