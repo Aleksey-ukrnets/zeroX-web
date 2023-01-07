@@ -37,6 +37,7 @@ export default function Profile() {
       console.log(res.data);
       dispatch(userActions.setUser(res.data));
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const isUp = user?.balance_change_type === 'up';
 
@@ -88,7 +89,7 @@ export default function Profile() {
           </div>
           <div className={css.columns}>
             {user.closed_postions.map((el, index) => {
-              let isType = el.value_type === 'up'
+              let isType = el.value_type === 'up';
               return (
                 <div className={css.main} key={index}>
                   <div className={css.firstCol}>
@@ -105,7 +106,6 @@ export default function Profile() {
                     {ArrowSVG(isType ? '#4CB904' : 'red')}
                     <div className={cn(css.changeText, isType && css.active)}>
                       {`$${user?.balance_change} (${user?.balance_change_percent})`}
-                      
                     </div>
                   </div>
                 </div>

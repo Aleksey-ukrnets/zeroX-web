@@ -17,12 +17,7 @@ export const InnerTokenInfo = () => {
   const dispatch = useDispatch();
   const { twitterCards } = useSelector(twitterCardsSelector.getTwitterCards);
 
-  const {
-    tokenCards,
-    // tokenCardsAnalyzed,
-    tokenCardsLaunchpad,
-    tokenCardsAlgo,
-  } = useSelector(tokenCardsSelector.getTokenCards);
+  const { tokenCards } = useSelector(tokenCardsSelector.getTokenCards);
 
   useEffect(() => {
     const getTokenDetailedInfo = async (tokenID) => {

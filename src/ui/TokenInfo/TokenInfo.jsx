@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Box, Typography, Button, Grid, Skeleton } from '@mui/material';
+import { Box, Typography, Button, Grid } from '@mui/material';
 import { DateTime } from 'luxon';
 import { IconsContainer } from '../../components/IconsContainer/IconsContainer';
 import { ContainerBox } from '../ContainerBox/ContainerBox';

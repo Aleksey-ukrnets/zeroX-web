@@ -5,7 +5,6 @@ import css from '../styles/pages/main.module.scss';
 // import MainLayout from '../ui/MainLayout/MainLayout';
 import Tabs from '../ui/Tabs/Tabs';
 
-import ProBtn from '../ui/Buttons/ProBtn';
 import { useSelector } from 'react-redux';
 import { tokenCardsSelector } from '../store/slices/tokenCards';
 import CardList from '../components/CardList/CardList';
