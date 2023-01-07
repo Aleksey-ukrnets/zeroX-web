@@ -1,9 +1,9 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import css from '../styles/pages/marketInfo.module.scss';
 import cn from 'classnames';
 import SwiperSlides from '../ui/SwiperSlide/SwiperSlides';
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import { ChartGainers } from '../ui/ChartGainers/ChartGainers';
 import {
   actions as actionTopMarketInfo,
