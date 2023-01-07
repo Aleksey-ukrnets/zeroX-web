@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Box, Typography, Button, Grid } from '@mui/material';
+import { Box, Typography, Button, Grid, Skeleton } from '@mui/material';
 import { DateTime } from 'luxon';
 import { IconsContainer } from '../../components/IconsContainer/IconsContainer';
 import { ContainerBox } from '../ContainerBox/ContainerBox';
@@ -7,11 +7,16 @@ import { Title } from '../../components/Title/Title';
 import { CommonAvatar } from '../../components/CommonAvatar/CommonAvatar';
 import { tokenDetailedInfoSelector } from '../../store/slices/tokenDetailedInfo';
 import css from './token.module.scss';
+import { TokenInfoSkeleton } from './TokenInfoSkeleton';
 
 export const TokenInfo = () => {
   const { tokenDetailedInfo } = useSelector(
     tokenDetailedInfoSelector.getTokenDetailedInfo
   );
+
+  if (!tokenDetailedInfo.bio) {
+    return <TokenInfoSkeleton />;
+  }
 
   return (
     <>
@@ -36,7 +41,7 @@ export const TokenInfo = () => {
                     my: { mobile: 2 },
                   }}
                 >
-                  {tokenDetailedInfo?.token_name || 'Unknown'}
+                  {tokenDetailedInfo?.token_name}
                 </Typography>
                 <IconsContainer icons={tokenDetailedInfo?.social} />
               </Box>
@@ -62,7 +67,7 @@ export const TokenInfo = () => {
               <Typography variant="subtitle1" fontSize="inherit">
                 Audit
               </Typography>
-              <Typography variant="caption" fontWeight="600" fontSize="inherit">
+              <Typography variant="caption" fontWeight="500" fontSize="inherit">
                 {tokenDetailedInfo.audit}
               </Typography>
             </Box>
@@ -73,7 +78,7 @@ export const TokenInfo = () => {
               <Typography variant="subtitle1" fontSize="inherit">
                 Age
               </Typography>
-              <Typography variant="caption" fontWeight="600" fontSize="inherit">
+              <Typography variant="caption" fontWeight="500" fontSize="inherit">
                 {DateTime.fromSeconds(
                   tokenDetailedInfo.project_age
                 ).toRelative()}
