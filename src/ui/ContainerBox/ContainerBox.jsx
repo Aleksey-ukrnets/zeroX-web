@@ -7,7 +7,7 @@ export const ContainerBox = ({ children, mt, mb }) => {
       sx={{
         boxShadow: 8,
         p: {
-          tablet: '30px',
+          tablet: '15px 30px 30px 30px',
           mobile: '21px',
         },
         borderRadius: 2.5,

@@ -18,14 +18,21 @@ function App() {
   useEffect(() => {
     //twitterCards
     axios.get('https://zerox.pro/api/twitter').then((resp) => {
-      console.log(resp, 'twitter');
       dispatch(twitterActions.setTwitterCards([...resp?.data?.data]));
     });
-    //tokenCards
+    //tokenCards all
     axios.get('https://zerox.pro/api/token_list?limit=6').then((resp) => {
-      console.log(resp, 'response');
       dispatch(tokenActions.setTokenCards([...resp?.data?.data]));
     });
+    //tokenCards launchpad
+    axios.get('https://zerox.pro/api/token_list?limit=6&filter_type=launchpad').then((resp) => {
+      dispatch(tokenActions.setTokenCardsLaunchpad([...resp?.data?.data]));
+    });
+    //tokenCards algo
+    axios.get('https://zerox.pro/api/token_list?limit=6&filter_type=algo').then((resp) => {
+      dispatch(tokenActions.setTokenCardsAlgo([...resp?.data?.data]));
+    });
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

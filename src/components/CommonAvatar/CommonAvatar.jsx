@@ -44,6 +44,8 @@ export const CommonAvatar = ({ src, widthProps, heightProps }) => {
             mobile: heightProps?.mobile || '109px',
             tablet: heightProps?.tablet || '129px',
           },
+          padding: '30px',
+          backgroundColor: 'rgb(255 255 255 / 10%)',
         }}
       />
     );
