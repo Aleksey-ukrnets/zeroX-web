@@ -9,10 +9,20 @@ import { twitterCardsSelector } from '../store/slices/twitterCards';
 import { ChartTopHolders } from '../ui/ChartTopHolders/ChartTopHolders';
 import { LastTopTransactions } from '../ui/LastTopTransactions/LastTopTransactions';
 import { actions as actionTokenDetailedInfo } from '../store/slices/tokenDetailedInfo';
+import { tokenCardsSelector } from '../store/slices/tokenCards';
+import CardList from '../components/CardList/CardList';
+import { Title } from '../components/Title/Title';
 
 export const InnerTokenInfo = () => {
   const dispatch = useDispatch();
   const { twitterCards } = useSelector(twitterCardsSelector.getTwitterCards);
+
+  const {
+    tokenCards,
+    // tokenCardsAnalyzed,
+    tokenCardsLaunchpad,
+    tokenCardsAlgo,
+  } = useSelector(tokenCardsSelector.getTokenCards);
 
   useEffect(() => {
     const getTokenDetailedInfo = async (tokenID) => {
@@ -41,6 +51,7 @@ export const InnerTokenInfo = () => {
             gap: '20px',
             padding: '20px 0',
           }}
+          my={5}
         >
           {twitterCards.map((el, index) => {
             return <TwitterCard key={index} data={el} />;
@@ -50,6 +61,10 @@ export const InnerTokenInfo = () => {
       {/* -------------- /Twitter -------------- */}
       <ChartTopHolders />
       <LastTopTransactions />
+      <Box my={3}>
+        <Title color="#fff">Watch more</Title>
+      </Box>
+      <CardList tokenCards={tokenCards} />
     </main>
   );
 };

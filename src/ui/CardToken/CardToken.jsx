@@ -4,6 +4,7 @@ import css from './style.module.scss';
 import cn from 'classnames';
 import { cardsConfig } from '../../config/cards';
 import { scores } from '../../tools/get-score';
+import { DateTime } from 'luxon';
 const colors = {
   analyzed: { color: css.analyzed },
   algo: { color: css.algo },
@@ -11,15 +12,12 @@ const colors = {
 };
 
 export default function CardToken({ data }) {
-  
   const { img } = cardsConfig[data?.status];
-  
+
   return (
     <div className={css.card}>
       <div className={css.header}>
-        <div className={css.type}>
-          {scores(data?.trend_score, '🔥')}
-        </div>
+        <div className={css.type}>{scores(data?.trend_score, '🔥')}</div>
         <div className={cn(css.text, colors[data?.status].color)}>
           {data?.status}
           {img && <img src={img} alt="img" />}
@@ -54,10 +52,10 @@ export default function CardToken({ data }) {
         </div>
         <div className={css.age}>
           <div>Age</div>
-          <div>{data.age}</div>
+          <div>{DateTime.fromSeconds(data.project_age).toRelative()}</div>
         </div>
       </div>
-      <Link to={`/${data.id}`} className={css.btn}>
+      <Link to={`/${data.token_id}`} className={css.btn}>
         more info
       </Link>
     </div>

@@ -20,7 +20,7 @@ export const TokenInfo = () => {
 
   return (
     <>
-      <ContainerBox mt={{ desktopLarge: 20 }}>
+      <ContainerBox mt={{ mobile: 15, desktopLarge: 20 }}>
         <Title>Token Info</Title>
         <Grid container spacing={1} className={css.BorderBottom}>
           <Grid item tablet={6}>

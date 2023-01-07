@@ -6,6 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url('./assets/bgBlur.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   scrollbar-width: auto;
   scrollbar-color: #585858 $glass-stroke;
 }
