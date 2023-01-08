@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-
-import css from '../styles/pages/main.module.scss';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 // import MainLayout from '../ui/MainLayout/MainLayout';
 import Tabs from '../ui/Tabs/Tabs';
 
-import { useSelector } from 'react-redux';
 import { tokenCardsSelector } from '../store/slices/tokenCards';
 import CardList from '../components/CardList/CardList';
+import { actions as tokenActions } from '../store/slices/tokenCards';
+import axios from 'axios';
+import css from '../styles/pages/main.module.scss';
 
 const tabs = [
   { id: 1, title: 'All TOKENS' },
@@ -17,6 +18,7 @@ const tabs = [
 ];
 
 export default function Main() {
+  const dispatch = useDispatch();
   const [tab, setTab] = useState(0);
   const {
     tokenCards,
@@ -24,6 +26,27 @@ export default function Main() {
     tokenCardsLaunchpad,
     tokenCardsAlgo,
   } = useSelector(tokenCardsSelector.getTokenCards);
+
+  useEffect(() => {
+    //tokenCards all
+    axios.get('https://zerox.pro/api/token_list?limit=6').then((resp) => {
+      dispatch(tokenActions.setTokenCards([...resp?.data?.data]));
+    });
+    //tokenCards launchpad
+    axios
+      .get('https://zerox.pro/api/token_list?limit=6&filter_type=launchpad')
+      .then((resp) => {
+        dispatch(tokenActions.setTokenCardsLaunchpad([...resp?.data?.data]));
+      });
+    //tokenCards algo
+    axios
+      .get('https://zerox.pro/api/token_list?limit=6&filter_type=algo')
+      .then((resp) => {
+        dispatch(tokenActions.setTokenCardsAlgo([...resp?.data?.data]));
+      });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={css.main}>
