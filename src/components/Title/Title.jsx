@@ -5,6 +5,7 @@ export const Title = ({
   color = false,
   variant = 'h5',
   fontWeight = '500',
+  fontSize,
 }) => {
   return (
     <Typography
@@ -14,6 +15,7 @@ export const Title = ({
       sx={{
         color: color,
         fontWeight,
+        fontSize,
       }}
       className={css.Title}
     >
