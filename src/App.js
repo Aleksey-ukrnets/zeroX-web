@@ -5,7 +5,6 @@ import MarketInfo from './pages/MarketInfo';
 import Pro from './pages/Pro';
 import Container from '@mui/material/Container';
 import { InnerTokenInfo } from './pages/InnerTokenInfo';
-import { Toaster } from 'react-hot-toast';
 import { Authorization } from './pages/Authorization';
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
     <>
       <Container maxWidth="desktopLarge">
         <Header />
-        <Toaster containerStyle={{ top: '70px' }} />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/:id" element={<InnerTokenInfo />} />
