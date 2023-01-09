@@ -5,12 +5,12 @@ import css from './style.module.scss';
 import twitter from '../../assets/twitter.svg';
 import userIcon from '../../assets/userIcon.svg';
 import infoIcon from '../../assets/info.svg';
-import moment from 'moment/moment';
+import { DateTime } from 'luxon';
 
 export default function TwitterCard({ data }) {
-
-  const net = new Date(data?.publish_timestamp);
-  const postTime = moment(net).format('h:mm A - MMM D, YYYY');
+  const net = DateTime.fromSeconds(data?.publish_timestamp).toFormat(
+    'hh:mm a - LLL dd, yyyy'
+  );
 
   return (
     <div className={css.twitterCard}>
@@ -32,7 +32,7 @@ export default function TwitterCard({ data }) {
         </a>
       </header>
       <div className={css.content}>{data.twit}</div>
-      <div className={css.date}>{postTime}</div>
+      <div className={css.date}>{net}</div>
       <footer>
         <img src={userIcon} alt="iconUser" />
         <div className={css.text}>See directoapp`s other Tweets </div>
