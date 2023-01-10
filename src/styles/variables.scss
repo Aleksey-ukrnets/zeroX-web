@@ -10,6 +10,7 @@ $color-gray-neutral: rgba(174, 174, 174, 1);
 $color-gray-dark: rgba(67, 70, 82, 1);
 $color-green: rgba(117, 253, 83, 1);
 $color-orange: rgba(255, 86, 49, 1);
+$color-purple: rgba(147, 83, 255, 1);
 
 :export {
   defaultBackground: $default-background;
@@ -22,4 +23,5 @@ $color-orange: rgba(255, 86, 49, 1);
   colorGrayDark: $color-gray-dark;
   colorGreen: $color-green;
   colorOrange: $color-orange;
+  colorPurple: $color-purple;
 }
