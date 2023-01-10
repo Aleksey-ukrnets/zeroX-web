@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 // import MainLayout from '../ui/MainLayout/MainLayout';
 import Tabs from '../ui/Tabs/Tabs';
 
+// import ProBtn from '../ui/Buttons/ProBtn';
+
 import { tokenCardsSelector } from '../store/slices/tokenCards';
 import CardList from '../components/CardList/CardList';
 import { actions as tokenActions } from '../store/slices/tokenCards';
@@ -20,12 +22,10 @@ const tabs = [
 export default function Main() {
   const dispatch = useDispatch();
   const [tab, setTab] = useState(0);
-  const {
-    tokenCards,
-    // tokenCardsAnalyzed,
-    tokenCardsLaunchpad,
-    tokenCardsAlgo,
-  } = useSelector(tokenCardsSelector.getTokenCards);
+
+  const { tokenCards, tokenCardsLaunchpad, tokenCardsAlgo } = useSelector(
+    tokenCardsSelector.getTokenCards
+  );
 
   useEffect(() => {
     //tokenCards all
@@ -54,11 +54,11 @@ export default function Main() {
 
       <Tabs tabs={tabs} initialTab={tab} onTabChange={setTab} />
       {tab === 0 ? (
-        <CardList tokenCards={tokenCards} />
+        <CardList tokenCards={tokenCards} tab={tab} />
       ) : tab === 1 ? (
-        <CardList tokenCards={tokenCardsLaunchpad} />
+        <CardList tokenCards={tokenCardsLaunchpad} tab={tab} />
       ) : tab === 2 ? (
-        <CardList tokenCards={tokenCardsAlgo} />
+        <CardList tokenCards={tokenCardsAlgo} tab={tab} />
       ) : (
         <></>
       )}
