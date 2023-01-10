@@ -8,12 +8,12 @@ import useScroll from '../../hooks/useScroll';
 import { useDispatch } from 'react-redux';
 import { actions as tokenActions } from '../../store/slices/tokenCards';
 
-export default function CardList({ tokenCards, tab,}) {
+export default function CardList({ tokenCards, tab, analyzed}) {
 
   const [page, setPage] = useState(1);
   const [isLoading, setLoading] = useState(true)
   const [listType, setListType] = useState('token_list');
-  const limit = 6;
+  const limit = analyzed ? 3 : 6;
   const parentRef = useRef();
   const childRef = useRef();
   const dispatch = useDispatch();
@@ -26,8 +26,10 @@ export default function CardList({ tokenCards, tab,}) {
       setListType('launchpad')
     } else if(tab === 2){
       setListType('algo')
+    } else if(analyzed){
+      setListType('analyzed')
     }
-  },[tab])
+  },[tab,analyzed])
 
     const intersecting = useScroll(parentRef, childRef, ()=> fetchTokens(page, limit))
 
@@ -48,6 +50,9 @@ export default function CardList({ tokenCards, tab,}) {
         } else if(tab === 2){
           if(datas) setLoading(false)
           dispatch(tokenActions.setTokenCardsAlgo([...tokenCards,...resp?.data?.data]));
+        } else if(analyzed){
+          if(datas) setLoading(false)
+          dispatch(tokenActions.setTokenCardsAnalyzed([...tokenCards,...resp?.data?.data]));
         }
         setPage((prev) => prev + 1 )
         console.log(resp)
@@ -59,6 +64,7 @@ export default function CardList({ tokenCards, tab,}) {
       mx={{ mobile: 0, tablet: 15 }}
       px={{ mobile: 0, tablet: 2 }}
       className={css.cards}
+      style={analyzed && {height: '600px', overflowY: 'scroll'}}
       ref={parentRef}
     >
       <Grid

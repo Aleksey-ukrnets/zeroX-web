@@ -20,7 +20,7 @@ export default function useScroll(parentRef, childRef, callback){
 
         observer.current.observe(childRef.current)
         return function (){
-            observer.current.unobserve(childRef.current)
+            observer.current.unobserve(child)
         }
     }, [callback])
 }

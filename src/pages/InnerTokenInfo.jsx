@@ -11,11 +11,11 @@ import { tokenCardsSelector } from '../store/slices/tokenCards';
 import CardList from '../components/CardList/CardList';
 import { Title } from '../components/Title/Title';
 import { TwitterContainer } from '../components/TwitterContainer/TwitterContainer';
-
+import { actions as tokenActions } from '../store/slices/tokenCards';
 export const InnerTokenInfo = () => {
   const dispatch = useDispatch();
 
-  const { tokenCards } = useSelector(tokenCardsSelector.getTokenCards);
+  const { tokenCardsAnalyzed } = useSelector(tokenCardsSelector.getTokenCards);
 
   useEffect(() => {
     const getTokenDetailedInfo = async (tokenID) => {
@@ -28,8 +28,13 @@ export const InnerTokenInfo = () => {
         console.error('getTokenDetailedInfo: getData error');
       }
     };
-
     getTokenDetailedInfo();
+
+    axios
+      .get('https://zerox.pro/api/token_list?limit=3&filter_type=analyzed')
+      .then((resp) => {
+        dispatch(tokenActions.setTokenCardsAnalyzed([...resp?.data?.data]));
+      });
   }, [dispatch]);
 
   return (
@@ -41,7 +46,8 @@ export const InnerTokenInfo = () => {
       <Box my={3}>
         <Title color="#fff">Watch more</Title>
       </Box>
-      <CardList tokenCards={tokenCards} />
+      
+      <CardList tokenCards={tokenCardsAnalyzed} analyzed />
     </main>
   );
 };

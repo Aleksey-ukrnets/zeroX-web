@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   tokenCards: [],
-  // tokenCardsAnalyzed: [],
+  tokenCardsAnalyzed: [],
   tokenCardsLaunchpad: [],
   tokenCardsAlgo: [],
 };
@@ -13,9 +13,9 @@ const tokenCardsSlice = createSlice({
     setTokenCards: (state, action) => {
       state.tokenCards = action.payload;
     },
-    // setTokenCardsAnalyzed: (state, action) => {
-    //   state.tokenCardsAnalyzed = action.payload;
-    // },
+    setTokenCardsAnalyzed: (state, action) => {
+      state.tokenCardsAnalyzed = action.payload;
+    },
     setTokenCardsLaunchpad: (state, action) => {
       state.tokenCardsLaunchpad = action.payload;
     },
