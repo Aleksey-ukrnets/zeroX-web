@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import Main from './pages/Main';
 import MarketInfo from './pages/MarketInfo';
 import Pro from './pages/Pro';
@@ -10,8 +10,8 @@ import { Authorization } from './pages/Authorization';
 function App() {
   return (
     <>
+      <Header />
       <Container maxWidth="desktopLarge">
-        <Header />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/:id" element={<InnerTokenInfo />} />
