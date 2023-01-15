@@ -10,7 +10,7 @@ import { Box } from '@mui/material';
 import TwitterCard from '../../ui/TwitterCard/TwitterCard';
 
 // Здесь будет инкапсулирована логика Twitter. В зависимости от пропсов рендерим слайдером или сеткой
-export const TwitterContainer = () => {
+export const TwitterContainer = ({isMarket}) => {
   const dispatch = useDispatch();
   const { twitterCards } = useSelector(twitterCardsSelector.getTwitterCards);
   useEffect(() => {
@@ -23,11 +23,17 @@ export const TwitterContainer = () => {
     <>
       {twitterCards.length > 0 && (
         <Box
-          sx={{
+          sx={!isMarket ?{
             display: 'flex',
             overflowX: 'scroll',
             gap: '20px',
             padding: '20px 0',
+          }: {
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr 1fr',
+            overflowY: 'scroll',
+            gap: '20px',
+            height: '592px'
           }}
           my={5}
         >

@@ -3,13 +3,7 @@ import variables from '../../styles/variables.scss';
 
 const copyClipBoard = (text) => {
   navigator.clipboard.writeText(text);
-  // toast.success('Text copied', {
-  //   style: {
-  //     backgroundColor: 'rgb(255 255 255 / 20%)',
-  //     color: '#fff',
-  //     backdropFilter: variables.blur10,
-  //   },
-  // });
+  
 };
 
 function IconCopy({ mx, textClipBoard }) {

@@ -11,6 +11,7 @@ import {
 } from '../store/slices/topMarketInfo';
 import { useDispatch, useSelector } from 'react-redux';
 import { TableLosers } from '../ui/TableLosers/TableLosers';
+import { TwitterContainer } from '../components/TwitterContainer/TwitterContainer';
 
 export default function MarketInfo() {
   const dispatch = useDispatch();
@@ -70,6 +71,11 @@ export default function MarketInfo() {
           <TableLosers />
         </Grid>
       </Grid>
+      <div className={css.twitterBLock}>
+        <div className={css.twitTitle}>Twiiter</div>
+        <TwitterContainer isMarket />
+      </div>
+      
     </div>
   );
 }

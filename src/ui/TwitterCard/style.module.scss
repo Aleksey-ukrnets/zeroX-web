@@ -3,6 +3,7 @@
   border-radius: 10px;
   padding: 15px;
   min-width: 425px;
+  height: 286px;
   header {
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
@@ -47,6 +48,8 @@
     font-size: 16px;
     line-height: 30px;
     color: #353535;
+    max-height: 120px;
+    overflow-y: scroll;
   }
   .date {
     margin-top: 20px;

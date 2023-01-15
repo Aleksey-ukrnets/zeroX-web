@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   user: {},
+  deposit: []
 };
 const userSlice = createSlice({
   name: 'user',
@@ -8,6 +9,9 @@ const userSlice = createSlice({
   reducers: {
     setUser: (state, action) => {
       state.user = action.payload;
+    },
+    setUserDeposit: (state, action) => {
+      state.deposit = action.payload;
     },
   },
 });

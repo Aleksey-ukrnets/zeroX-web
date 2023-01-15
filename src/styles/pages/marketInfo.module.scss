@@ -23,7 +23,7 @@
       justify-content: center;
       align-items: center;
       gap: 8px;
-      font-family: 'Roboto';
+      font-family: 'Roboto',sans-serif;
       font-style: normal;
       color: #ffffff;
       .title {
@@ -31,10 +31,29 @@
         font-size: 20px;
         line-height: 30px;
       }
-      .cost, .persent {
+      .cost,
+      .persent {
         font-weight: 400;
         font-size: 18px;
       }
+    }
+  }
+  .twitterBLock {
+    background: rgba(31, 33, 41, 0.1);
+    border: 1px solid rgba(88, 88, 88, 0.2);
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 24px;
+    .twitTitle {
+      font-family: 'Roboto',sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 38px;
+      width: 100%;
+      text-align: center;
+      color: #05a2f2;
     }
   }
 }
