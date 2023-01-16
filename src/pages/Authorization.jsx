@@ -28,6 +28,7 @@ export const Authorization = () => {
     setInfoToast({ show: false });
   };
 
+  
   const handleAccountsChanged = useCallback(
     async (accounts) => {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
